@@ -22,8 +22,8 @@
           </transition-group>
         </draggable>
       </div>
+      <random-fill-window ref="randomFillWindow" @listFilled="dd"></random-fill-window>
       <button @click="shuffle">click</button>
-
     </div>
   </div>
 </template>
@@ -32,10 +32,12 @@
 
 import Bubble from "@/orders/Bubble";
 import draggable from 'vuedraggable';
+import RandomFillWindow from "@/components/RandomFillWindow";
 
 export default {
   name: 'App',
   components: {
+    RandomFillWindow,
     draggable,
   },
   data() {
@@ -59,6 +61,10 @@ export default {
     add: function () {
       this.elements.push(this.addBuffer);
       this.addBuffer = null;
+      this.$refs.randomFillWindow.show();
+    },
+    dd: function () {
+      console.log(this.$refs.randomFillWindow.result);
     }
   }
 }
