@@ -18,6 +18,8 @@
 
 <script>
 
+import {func} from "@/functions";
+
 const windowName = 'random-fill-window';
 
 export default {
@@ -43,7 +45,11 @@ export default {
       }
 
       for (let i = 0; i < this.rangeCount; i++) {
-        this.result.push(getRandomArbitrary(this.rangeNumbers[0], this.rangeNumbers[1]));
+        let randomNumber;
+        do {
+           randomNumber = getRandomArbitrary(this.rangeNumbers[0], this.rangeNumbers[1]);
+        } while (!func.isUnique(this.result, randomNumber))
+        this.result.push(randomNumber);
       }
 
       this.$emit('listFilled');

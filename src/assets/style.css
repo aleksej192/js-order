@@ -11,15 +11,23 @@
     text-align: center;
     color: #2c3e50;
     width: 100%;
-    max-width: 1075px;
+    max-width: 1081px;
     margin-left: auto;
     margin-right: auto;
     margin-top: 60px;
 }
 
-.left {
-    width: 735px;
+.container {
+    display: flex;
     margin-top: 80px;
+}
+
+.left {
+    width: 702px;
+}
+
+.right {
+    margin-left: 40px;
 }
 
 .input-group {
@@ -73,6 +81,7 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    margin-bottom: 10px;
 }
 
 .order-field {
@@ -86,6 +95,12 @@
     justify-content: center;
     align-items: center;
     margin-top: 25px;
+    position: relative;
+}
+
+.order-field__inner {
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .btn-main {
@@ -223,4 +238,18 @@ input[type=range]:focus::-ms-fill-upper {
 
 .vue-slider {
     margin-top: 35px;
+}
+
+.order-field__btn {
+    width: 42px;
+    height: 42px;
+    background: #7FB6EA;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 18px;
+    bottom: 18px;
 }
