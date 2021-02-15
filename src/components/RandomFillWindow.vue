@@ -40,6 +40,8 @@ export default {
       this.$vm2.close(this.windowName);
     },
     run: function () {
+      this.result = [];
+
       function getRandomArbitrary(min, max) {
         return Math.round(Math.random() * (max - min) + min);
       }

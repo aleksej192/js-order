@@ -253,3 +253,26 @@ input[type=range]:focus::-ms-fill-upper {
     right: 18px;
     bottom: 18px;
 }
+
+.order-field__btn--2 {
+    right: 71px;
+}
+
+.list-complete-item {
+    transition: all 0.5s;
+    margin-right: 10px;
+}
+
+.list-complete-enter, .list-complete-leave-to {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.list-complete-leave-active {
+    position: absolute;
+    color: aliceblue;
+}
+
+.list-complete-move {
+    transform: translateY(-10px);
+}
