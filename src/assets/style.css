@@ -15,19 +15,23 @@
     margin-left: auto;
     margin-right: auto;
     margin-top: 60px;
+    padding-right: 358px;
 }
 
 .container {
     display: flex;
     margin-top: 80px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1081px;
 }
 
 .left {
-    width: 702px;
+    width: 716px;
 }
 
 .right {
-    margin-left: 40px;
+    margin-left: 25px;
 }
 
 .input-group {
@@ -258,6 +262,10 @@ input[type=range]:focus::-ms-fill-upper {
     right: 71px;
 }
 
+.order-field__btn--3 {
+    right: 124px;
+}
+
 .list-complete-item {
     transition: all 0.5s;
     margin-right: 10px;
@@ -273,6 +281,46 @@ input[type=range]:focus::-ms-fill-upper {
     color: aliceblue;
 }
 
-.list-complete-move {
+.order-field .list-complete-move {
+    background-color: red;
     transform: translateY(-10px);
+}
+
+.order-field .list-complete-move ~ .list-complete-move {
+    background-color: #7FB6EA;
+    transform: none;
+}
+
+.history-log {
+    width: 358px;
+    height: 100vh;
+    background: #535353;
+    position: fixed;
+    right: 0;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.history-log__title {
+    font-size: 25px;
+    line-height: 110%;
+    text-align: center;
+    color: #FFFFFF;
+    margin-top: 60px;
+    margin-bottom: 50px;
+}
+
+.history-log__item {
+    color: white;
+}
+
+.vue-simple-context-menu {
+    position: fixed;
+}
+
+.history-log__list {
+    overflow-y: auto;
+    padding-bottom: 30px;
+    padding-top: 30px;
 }
