@@ -88,6 +88,7 @@ import {func} from "@/functions";
 import 'vue-simple-context-menu/dist/vue-simple-context-menu.css'
 import VueSimpleContextMenu from 'vue-simple-context-menu'
 import Vue from 'vue'
+import Insert from "@/orders/Insert";
 
 Vue.component('vue-simple-context-menu', VueSimpleContextMenu)
 
@@ -216,7 +217,7 @@ export default {
     getSort: function () {
       let elements = this.elements.map((i) => parseInt(i));
 
-      return new Bubble(elements);
+      return new Insert(elements);
 
       // switch (this.currentOrder) {
       //   case "bubble":
