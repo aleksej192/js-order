@@ -175,14 +175,21 @@ export default {
       }
     },
     sortQuick: function () {
-      let sort = new Bubble(this.elements.map((i) => parseInt(i)));
-      let result = sort.sort(false, this.isChanged && this.lastResult ? null : this.lastResult.iterationsCount);
+      let sort = this.getSort();
+      let result = sort.sort(false);
       this.elements = result.items;
       this.isStop = true;
       this.lastResult = result;
 
       if (this.isChanged)
-        this.pushToHistory('Пузырьковая', this.elements.count, result.iterationsCount, result.iterationsCount);
+        this.pushToHistory(
+            sort.name,
+            this.elements.count,
+            result.iterationsCount,
+            result.iterationsCount,
+            result.iterationsCount,
+            result.iterationsCount
+        );
       else
         this.setCurrentIterationsCount(result.iterationsCount);
     },
