@@ -12,8 +12,8 @@
         </div>
         <div class="input-group">
           <label for="orders" class="input-group__label">Выберите сортировку</label>
-          <div class="input-group__input">
-            <select id="orders" v-model="currentOrder">
+          <div class="input-group__input input-group__input--select">
+            <select class="input" id="orders" v-model="currentOrder">
               <option v-for="(value, key) in orders" v-bind:key="key" :value="key">{{ value }}</option>
             </select>
           </div>

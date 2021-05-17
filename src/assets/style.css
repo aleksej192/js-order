@@ -36,6 +36,9 @@
 
 .input-group {
     display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    justify-content: flex-end;
 }
 
 .input-group__label {
@@ -49,6 +52,10 @@
 .input-group__input {
     display: flex;
     width: 375px;
+}
+
+.input-group__input--select {
+    width: 308px;
 }
 
 .input {
