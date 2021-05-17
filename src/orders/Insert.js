@@ -1,22 +1,12 @@
 import OrderResult from "@/structs/OrderResult";
+import BaseOrder from "@/orders/BaseOrder";
 
-class Insert {
+class Insert extends BaseOrder
+{
   constructor(items) {
-    this.items = items.map((i) => i);
-    this.maxCounter = 0;
+    super(items);
+
     this.name = 'Вставками';
-    this.result = new OrderResult(items, 0, 0, false);
-
-    this.resultIterationsCount = this.sort().iterationsCount;
-    this.resultComparisonCount = this.sort().comparisonCount;
-  }
-
-  setItems(items) {
-    this.items = items;
-  }
-
-  isSorted(arr) {
-    return arr.every((v,i,a) => !i || a[i-1] <= v);
   }
 
   sort(byStep = false, iterationsCount = 0, comparisonCount = 0) {
@@ -49,10 +39,6 @@ class Insert {
       }
     }
     return new OrderResult(arr, iterationsCount, comparisonCount, true);
-  }
-
-  getResult() {
-    return this.result;
   }
 }
 

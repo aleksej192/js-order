@@ -118,6 +118,8 @@ export default {
       lastResult: null,
       activeElement: null,
       compareElement: null,
+      serializeString: null,
+      sortObj: null,
     }
   },
   methods: {
@@ -133,29 +135,46 @@ export default {
       this.isStop = !this.isStop;
 
       if (!this.isStop) {
-        let sort = this.getSort();
+        this.sortObj = this.getSort();
 
-        if (this.isChanged)
-          this.pushToHistory(sort.name, this.elements.length, sort.resultIterationsCount,  sort.resultComparisonCount);
+        if (this.serializeString) {
+          console.log(JSON.parse(this.serializeString));
+          this.sortObj.deserialize(this.serializeString);
+          console.log(this.sortObj);
+          this.serializeString = null;
+        }
+        
+        if (this.isChanged) {
+          this.pushToHistory(
+              this.sortObj.name,
+              this.elements.length,
+              this.sortObj.resultIterationsCount,
+              this.sortObj.resultComparisonCount
+          );
+          this.sortObj.setItems(this.elements.map((i) => parseInt(i)));
+        }
 
-        if (sort.resultIterationsCount > 0) {
-          this.runSortIteration(sort, this.isChanged && this.lastResult ? null : this.lastResult);
+        if (this.sortObj.resultIterationsCount > 0) {
+          this.runSortIteration(this.sortObj, this.isChanged && this.lastResult ? null : this.lastResult);
         } else {
           this.isStop = true;
         }
 
         this.isChanged = false;
+      } else {
+        this.serializeString = this.sortObj.serialize();
+        console.log(JSON.parse(this.serializeString));
       }
     },
-    runSortIteration: function (sort, result = null, isFirst = true) {
+    runSortIteration: function (sort, result = null) {
       if (this.isStop) {
         return;
       }
 
       let th = this;
-      if (isFirst) {
-        sort.setItems(this.elements.map((i) => parseInt(i)));
-      }
+      // if (isFirst) {
+      //   sort.setItems(this.elements.map((i) => parseInt(i)));
+      // }
       sort.sort(true);
       result = sort.getResult();
       this.elements = result.items;

@@ -1,22 +1,12 @@
 import OrderResult from "@/structs/OrderResult";
+import BaseOrder from "@/orders/BaseOrder";
 
-class Bubble
+class Bubble extends BaseOrder
 {
   constructor(items) {
-    this.items = items.map((i) => i);
+    super(items);
 
     this.name = 'Пузырьковая';
-
-    this.result = new OrderResult(items, 0, 0, false);
-
-    this.maxCounter = 0;
-
-    this.resultIterationsCount = this.sort().iterationsCount;
-    this.resultComparisonCount = this.sort().comparisonCount;
-  }
-
-  setItems(items) {
-    this.items = items;
   }
   
   sort(byStep = false, iterationsCount = 0, comparisonCount = 0) {
@@ -55,14 +45,6 @@ class Bubble
       }
     }
     return new OrderResult(arr, iterationsCount, comparisonCount, true);
-  }
-
-  isSorted(arr) {
-    return arr.every((v,i,a) => !i || a[i-1] <= v);
-  }
-
-  getResult() {
-    return this.result;
   }
 }
 
