@@ -106,6 +106,7 @@ export default {
   data() {
     return {
       elements: [],
+      elementsOld: [],
       addBuffer: null,
       isStop: true,
       history: [],
@@ -135,6 +136,7 @@ export default {
       this.isStop = !this.isStop;
 
       if (!this.isStop) {
+        this.setElementsOld();
         this.sortObj = this.getSort();
 
         if (this.serializeString) {
@@ -143,7 +145,7 @@ export default {
           console.log(this.sortObj);
           this.serializeString = null;
         }
-        
+
         if (this.isChanged) {
           this.pushToHistory(
               this.sortObj.name,
@@ -194,6 +196,7 @@ export default {
       }
     },
     sortQuick: function () {
+      this.setElementsOld();
       let sort = this.getSort();
       let result = sort.sort(false);
       this.elements = result.items;
@@ -214,8 +217,11 @@ export default {
     },
     clear: function () {
       this.isStop = true;
-      this.elements = [];
+      this.elements = this.elementsOld.map((i) => i);
       this.isChanged = true;
+    },
+    setElementsOld: function() {
+      this.elementsOld = this.elements.map((i) => i);
     },
     add: function () {
       if (this.addBuffer && func.isUnique(this.elements, this.addBuffer)) {
