@@ -10,14 +10,14 @@
             <button @click="add" class="btn">+</button>
           </div>
         </div>
-<!--        <div class="input-group">-->
-<!--          <label for="orders" class="input-group__label">Выберите сортировку</label>-->
-<!--          <div class="input-group__input">-->
-<!--            <select id="orders">-->
-<!--              <option v-for="(value, key) in orders" v-bind:key="key" :value="key">{{ value }}</option>-->
-<!--            </select>-->
-<!--          </div>-->
-<!--        </div>-->
+        <div class="input-group">
+          <label for="orders" class="input-group__label">Выберите сортировку</label>
+          <div class="input-group__input">
+            <select id="orders" v-model="currentOrder">
+              <option v-for="(value, key) in orders" v-bind:key="key" :value="key">{{ value }}</option>
+            </select>
+          </div>
+        </div>
         <div class="order-field">
           <draggable v-model="elements">
             <transition-group name="list-complete" tag="div" duration="1000" class="order-field__inner">
@@ -111,7 +111,7 @@ export default {
       history: [],
       orders: {
         "bubble": "Пузырьковая",
-        "shell": "Шелла",
+        "insert": "Вставками",
       },
       currentOrder: "bubble",
       isChanged: true,
@@ -227,14 +227,12 @@ export default {
     getSort: function () {
       let elements = this.elements.map((i) => parseInt(i));
 
-      return new Insert(elements);
-
-      // switch (this.currentOrder) {
-      //   case "bubble":
-      //     return new Bubble(elements);
-      //   case "shell":
-      //     return new Insert(elements);
-      // }
+      switch (this.currentOrder) {
+        case "bubble":
+          return new Bubble(elements);
+        case "insert":
+          return new Insert(elements);
+      }
     }
   }
 }
