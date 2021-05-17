@@ -24,7 +24,11 @@
               <div
                   v-for="(item) in elements"
                   v-bind:key="item"
-                  class="number-item list-complete-item"
+
+                  :class="'number-item list-complete-item '
+                  + (activeElement === item ? ' list-complete-item-active ' : ' ')
+                  + (compareElement === item ? ' list-complete-item-compare ' : ' ')"
+
                   @click.prevent.stop="handleClick($event, item)"
               >
                 {{ item }}
@@ -112,6 +116,8 @@ export default {
       currentOrder: "bubble",
       isChanged: true,
       lastResult: null,
+      activeElement: null,
+      compareElement: null,
     }
   },
   methods: {
@@ -155,6 +161,8 @@ export default {
       this.elements = result.items;
       this.setCurrentIterationsCount(result.iterationsCount, result.comparisonCount);
       this.lastResult = result;
+      this.activeElement = result.activeElement;
+      this.compareElement = result.compareElement;
 
       if (!result.isSorter) {
         setTimeout(function () {
@@ -162,6 +170,8 @@ export default {
         }, 1000);
       } else {
         this.isStop = true;
+        this.activeElement = null;
+        this.compareElement = null;
       }
     },
     sortQuick: function () {

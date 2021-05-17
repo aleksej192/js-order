@@ -267,28 +267,34 @@ input[type=range]:focus::-ms-fill-upper {
 }
 
 .list-complete-item {
-    transition: all 0.5s;
+    transition: all .5s;
     margin-right: 10px;
+    transform: translateY(10px);
 }
 
 .list-complete-enter, .list-complete-leave-to {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(-10px);
 }
 
 .list-complete-leave-active {
-    position: absolute;
-    color: aliceblue;
+    color: red;
 }
 
 .order-field .list-complete-move {
-    background-color: red;
-    transform: translateY(-10px);
+    transform: translateY(0px);
 }
 
 .order-field .list-complete-move ~ .list-complete-move {
     background-color: #7FB6EA;
-    transform: none;
+}
+
+.list-complete-item-active {
+    transform: translateY(0px);
+}
+
+.list-complete-item-compare {
+    transform: translateY(0px);
 }
 
 .history-log {

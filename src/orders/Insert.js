@@ -31,7 +31,7 @@ class Insert {
         arr[j] = arr[j - 1];
         j--;
         if (byStep && comparisonCount > this.maxCounter) {
-          this.result = new OrderResult(arrOld, iterationsCount, comparisonCount, this.isSorted(arrOld));
+          this.result = new OrderResult(arrOld, iterationsCount, comparisonCount, this.isSorted(arrOld), current, arr[j]);
           this.maxCounter = comparisonCount;
           return this.result;
         }

@@ -26,18 +26,25 @@ class Bubble
         comparisonCount++;
 
         if (arr[j] > arr[j + 1]) {
+          iterationsCount++;
+          if(byStep) {
+            this.result = new OrderResult(
+              arr,
+              iterationsCount,
+              comparisonCount,
+              this.isSorted(arr),
+              arr[j + 1],
+              arr[j + 2] || arr[0]
+            )
+          }
           let swap = arr[j];
           arr[j] = arr[j + 1];
           arr[j + 1] = swap;
-          iterationsCount++;
-          if(byStep) {
-            this.result = new OrderResult(arr, iterationsCount, comparisonCount, this.isSorted(arr))
-          }
         }
 
         if(byStep && comparisonCount > this.maxCounter) {
           this.maxCounter = comparisonCount;
-          this.result = new OrderResult(arr, iterationsCount, comparisonCount, this.isSorted(arr))
+          this.result = new OrderResult(arr, iterationsCount, comparisonCount, this.isSorted(arr), arr[j + 1], arr[j + 2] || arr[0])
           return this.result;
         }
 
