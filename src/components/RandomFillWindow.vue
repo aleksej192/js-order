@@ -6,7 +6,7 @@
     <div class="window__content">
       <div class="window__content-group">
         <div class="window__title">Количество элементов в массиве</div>
-        <vue-slider v-model="rangeCount" :tooltip="'always'" :max="50"></vue-slider>
+        <vue-slider v-model="rangeCount" :tooltip="'always'" :max="50" :min="2"></vue-slider>
       </div>
       <div class="window__content-group">
         <div class="window__title">Диапозон чисел в массиве</div>
