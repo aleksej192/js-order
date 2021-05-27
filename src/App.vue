@@ -202,18 +202,22 @@ export default {
       this.elements = result.items;
       this.isStop = true;
       this.lastResult = result;
+      this.activeElement = null;
+      this.compareElement = null;
+
+      console.log(result);
 
       if (this.isChanged)
         this.pushToHistory(
             sort.name,
             this.elements.count,
             result.iterationsCount,
+            result.comparisonCount,
+            result.comparisonCount,
             result.iterationsCount,
-            result.iterationsCount,
-            result.iterationsCount
         );
       else
-        this.setCurrentIterationsCount(result.iterationsCount);
+        this.setCurrentIterationsCount(result.iterationsCount, result.comparisonCount);
     },
     clear: function () {
       this.isStop = true;
@@ -253,7 +257,7 @@ export default {
       if (item) {
         item.currentIterationsCount = iterationsCount;
         item.currentComparisonCount = comparisonCount;
-        this.history.push(item);
+        this.history.unshift(item);
       }
     },
     getSort: function () {

@@ -6,11 +6,11 @@
     <div class="window__content">
       <div class="window__content-group">
         <div class="window__title">Количество элементов в массиве</div>
-        <vue-slider v-model="rangeCount" :tooltip="'always'"></vue-slider>
+        <vue-slider v-model="rangeCount" :tooltip="'always'" :max="50"></vue-slider>
       </div>
       <div class="window__content-group">
         <div class="window__title">Диапозон чисел в массиве</div>
-        <vue-slider v-model="rangeNumbers" :tooltip="'always'"></vue-slider>
+        <vue-slider v-model="rangeNumbers" :tooltip="'always'" :max="1000"></vue-slider>
       </div>
     </div>
   </vue-modal-2>
@@ -27,7 +27,7 @@ export default {
   data() {
     return {
       rangeCount: 2,
-      rangeNumbers: [0, 100],
+      rangeNumbers: [0, 1000],
       windowName: windowName,
       result: []
     };
