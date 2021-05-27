@@ -210,7 +210,7 @@ export default {
       if (this.isChanged)
         this.pushToHistory(
             sort.name,
-            this.elements.count,
+            this.elements.length,
             result.iterationsCount,
             result.comparisonCount,
             result.comparisonCount,
