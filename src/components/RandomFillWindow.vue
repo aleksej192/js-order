@@ -10,7 +10,7 @@
       </div>
       <div class="window__content-group">
         <div class="window__title">Диапозон чисел в массиве</div>
-        <vue-slider v-model="rangeNumbers" :tooltip="'always'" :max="1000"></vue-slider>
+        <vue-slider v-model="rangeNumbers" :min-range="50" :tooltip="'always'" :max="200"></vue-slider>
       </div>
     </div>
   </vue-modal-2>
@@ -27,7 +27,7 @@ export default {
   data() {
     return {
       rangeCount: 2,
-      rangeNumbers: [0, 1000],
+      rangeNumbers: [0, 200],
       windowName: windowName,
       result: []
     };
