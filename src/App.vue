@@ -198,7 +198,14 @@ export default {
     sortQuick: function () {
       this.setElementsOld();
       let sort = this.getSort();
-      let result = sort.sort(false);
+      let result;
+
+      if (this.lastResult) {
+        result = sort.sort(false, this.lastResult.iterationsCount || 0, this.lastResult.comparisonCount || 0);
+      } else {
+        result = sort.sort(false);
+      }
+
       this.elements = result.items;
       this.isStop = true;
       this.lastResult = result;
@@ -229,7 +236,7 @@ export default {
     },
     add: function () {
       if (this.addBuffer && func.isUnique(this.elements, this.addBuffer)) {
-        this.elements.push(this.addBuffer);
+        this.elements.push(+this.addBuffer);
         this.addBuffer = null;
         this.isChanged = true;
       }
