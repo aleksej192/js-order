@@ -236,6 +236,7 @@ export default {
     },
     showSorted: function () {
       this.elements = this.$refs.randomFillWindow.result;
+      this.isStop = true;
       this.isChanged = true;
     },
     openRandomModal: function () {
