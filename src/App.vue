@@ -200,11 +200,7 @@ export default {
       let sort = this.getSort();
       let result;
 
-      if (this.lastResult) {
-        result = sort.sort(false, this.lastResult.iterationsCount || 0, this.lastResult.comparisonCount || 0);
-      } else {
-        result = sort.sort(false);
-      }
+      result = sort.sort(false);
 
       this.elements = result.items;
       this.isStop = true;
