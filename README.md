@@ -1,24 +1,20 @@
-# 1k
+# Визализатор сортировок
 
-## Project setup
+## Установка проекта
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+## Запуск сервера с горячей перезагрузкой для разработки
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
+### Компиляция и миницикация
 ```
 npm run build
 ```
 
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Доступные методы сортировок:
+- Пузырьковая
+- Сортировка вставками
