@@ -12,8 +12,10 @@ class BaseOrder
 
     this.maxCounter = 0;
 
-    this.resultIterationsCount = this.sort().iterationsCount;
-    this.resultComparisonCount = this.sort().comparisonCount;
+    let sortResult = this.sort();
+
+    this.resultIterationsCount = sortResult.iterationsCount;
+    this.resultComparisonCount = sortResult.comparisonCount;
   }
 
   serialize() {

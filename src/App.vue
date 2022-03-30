@@ -165,7 +165,6 @@ export default {
         this.isChanged = false;
       } else {
         this.serializeString = this.sortObj.serialize();
-        console.log(JSON.parse(this.serializeString));
       }
     },
     runSortIteration: function (sort, result = null) {
@@ -174,9 +173,6 @@ export default {
       }
 
       let th = this;
-      // if (isFirst) {
-      //   sort.setItems(this.elements.map((i) => parseInt(i)));
-      // }
       sort.sort(true);
       result = sort.getResult();
       this.elements = result.items;

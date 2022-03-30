@@ -9,8 +9,11 @@ class Bubble extends BaseOrder
     this.name = 'Пузырьковая';
   }
   
-  sort(byStep = false, iterationsCount = 0, comparisonCount = 0) {
-    let arr = this.items.map((i) => i);
+  sort(byStep = false) {
+    let arr = this.items.map((i) => i),
+        iterationsCount = 0,
+        comparisonCount = 0;
+
     for (let i = 0, endI = arr.length - 1; i < endI; i++) {
       for (let j = 0, endJ = endI - i; j < endJ; j++) {
         comparisonCount++;

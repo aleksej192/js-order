@@ -9,7 +9,7 @@
         <vue-slider v-model="rangeCount" :tooltip="'always'" :max="50" :min="2"></vue-slider>
       </div>
       <div class="window__content-group">
-        <div class="window__title">Диапозон чисел в массиве</div>
+        <div class="window__title">диапазон чисел в массиве</div>
         <vue-slider v-model="rangeNumbers" :min-range="50" :tooltip="'always'" :max="200"></vue-slider>
       </div>
     </div>
